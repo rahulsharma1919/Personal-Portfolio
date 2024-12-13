@@ -28,7 +28,7 @@ export const PROJECTS = [
     image: project1,
     description:
       "A personal portfolio website showcasing projects, skills, and contact information with the help of React.js, HTML and Tailwind CSS. It is a beautiful, attractive as well as responsive portfolio website.",
-    link: "https://rahulsharma1919.github.io/Personal-Portfolio/",
+    link: "https://rahulsharma-portfolio.vercel.app/",
     technologies: ["HTML", "CSS", "React", "Tailwind"],
   },
   {
