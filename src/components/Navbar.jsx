@@ -1,5 +1,32 @@
-import React, { useState } from "react";
+import { motion } from "motion/react";
+import { useState } from "react";
 
+function Navigation() {
+  return (
+    <ul className="nav-ul">
+      <li className="nav-li">
+        <a href="#home" className="nav-link">
+          Home
+        </a>
+      </li>
+      <li className="nav-li">
+        <a href="#about" className="nav-link">
+          About
+        </a>
+      </li>
+      <li className="nav-li">
+        <a href="#work" className="nav-link">
+          Work
+        </a>
+      </li>
+      <li className="nav-li">
+        <a href="#contact" className="nav-link">
+          Contact
+        </a>
+      </li>
+    </ul>
+  );
+}
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
@@ -22,8 +49,24 @@ const Navbar = () => {
               alt="toggle"
             />
           </button>
+          <nav className="hidden sm:flex">
+            <Navigation />
+          </nav>
         </div>
       </div>
+      {isOpen && (
+        <motion.div
+          initial={{ opacity: 0, x: -10 }}
+          animate={{ opacity: 1, x: 0 }}
+          style={{ maxHeight: "100vh" }}
+          transition={{ duration: 1 }}
+          className="block overflow-hidden text-center sm:hidden"
+        >
+          <nav className="pb-5">
+            <Navigation />
+          </nav>
+        </motion.div>
+      )}
     </div>
   );
 };
