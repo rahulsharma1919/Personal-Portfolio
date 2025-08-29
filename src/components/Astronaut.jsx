@@ -28,7 +28,7 @@ export function Astronaut(props) {
       ref={group}
       {...props}
       dispose={null}
-      rotation={[-Math.PI / 2, -8.2, 2.2]}
+      rotation={[-Math.PI / 2, -6.5, 2.2]}
       scale={props.scale || 0.3}
       position={props.position || [1.3, -1, 0]}
     >
