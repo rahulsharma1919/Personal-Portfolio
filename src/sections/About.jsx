@@ -21,7 +21,7 @@ const About = () => {
             <p className="headtext">Hi, I'm Rahul Sharma</p>
             <p className="subtext">
               A Front-End Developer with ample command over Python, C++,
-              JavaScript, React.js, Node.js, MySQL, and Firebase.
+              React.js, Node.js, MySQL, and Firebase.
             </p>
           </div>
           <div className="absolute inset-x-0 pointer-events-none -bottom-4 h-1/2 sm:h-1/3 bg-gradient-to-t from-indigo"></div>
