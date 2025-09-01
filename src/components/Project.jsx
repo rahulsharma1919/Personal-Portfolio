@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import ProjectDetails from "./ProjectDetails";
 
 const Project = ({
@@ -14,7 +14,7 @@ const Project = ({
   return (
     <>
       <div
-        className="flex flex-wrap items-center py-10 justify-between space-y-14 sm:flex sm:space-y-0"
+        className="flex-wrap items-center justify-between py-10 space-y-14 sm:flex sm:space-y-0"
         onMouseEnter={() => setPreview(image)}
         onMouseLeave={() => setPreview(null)}
       >
@@ -31,7 +31,7 @@ const Project = ({
           className="flex items-center gap-1 cursor-pointer hover-animation"
         >
           Read More
-          <img src="assets/arrow-right.svg" alt="read more" className="w-5" />
+          <img src="assets/arrow-right.svg" className="w-5" />
         </button>
       </div>
       <div className="bg-gradient-to-r from-transparent via-neutral-700 to-transparent h-[1px] w-full" />
