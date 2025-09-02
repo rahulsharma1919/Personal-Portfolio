@@ -60,7 +60,7 @@ const HeroText = () => {
           {/* Scroll down arrow */}
           <div
             onClick={scrollToNext}
-            className="absolute bottom-5 left-8 flex items-center gap-1 cursor-pointer"
+            className="absolute bottom-5 left-8 flex items-center cursor-pointer"
           >
             {/* Arrow with light reflection */}
             <svg
@@ -69,9 +69,7 @@ const HeroText = () => {
               viewBox="0 0 24 24"
               fill="none"
               stroke="gray"
-              strokeWidth="2.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
+              strokeWidth="1.5"
               className="relative"
             >
               {/* Create arrow shape */}
@@ -102,13 +100,13 @@ const HeroText = () => {
               </defs>
               {/* Apply mask to arrow */}
               <g mask="url(#shine-mask)">
-                <path d="M6 9l6 6 6-6" stroke="white" strokeWidth="3" />
-                <path d="M6 15l6 6 6-6" stroke="white" strokeWidth="3" />
+                <path d="M6 9l6 6 6-6" stroke="white" strokeWidth="1" />
+                <path d="M6 15l6 6 6-6" stroke="white" strokeWidth="1" />
               </g>
             </svg>
 
             {/* Text beside arrow */}
-            <span className="text-white text-lg tracking-wide mt-1">
+            <span className="text-white text-lg tracking-wide mt-2">
               Scroll Down
             </span>
           </div>
