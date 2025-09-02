@@ -1,5 +1,7 @@
 import { useState } from "react";
 import emailjs from "@emailjs/browser";
+import Alert from "../components/Alert";
+import { Particles } from "../components/Particles";
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -7,8 +9,19 @@ const Contact = () => {
     message: "",
   });
   const [isLoading, setIsLoading] = useState(false);
+  const [showAlert, setShowAlert] = useState(false);
+  const [alertType, setAlertType] = useState("success");
+  const [alertMessage, setAlertMessage] = useState("");
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+  const showAlertMessage = (type, message) => {
+    setAlertType(type);
+    setAlertMessage(message);
+    setShowAlert(true);
+    setTimeout(() => {
+      setShowAlert(false);
+    }, 5000);
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -28,23 +41,30 @@ const Contact = () => {
         "bo8p3mH6NAAiXE7Zp"
       );
       setIsLoading(false);
-      alert("Email sent successfully!");
       setFormData({
         name: "",
         email: "",
-        message: "",    
+        message: "",
       });
+      showAlertMessage("success", "Message sent successfully!");
     } catch (error) {
       setIsLoading(false);
       console.error("Error sending message:", error);
-      alert("Message not sent");
+      showAlertMessage("danger", "Message not sent");
     }
     //   service_fu4hhiy
     //   template_qoelemu
   };
   return (
-      <section className="relative flex items-center c-space section-spacing">
-          <Alert/
+    <section className="relative flex items-center c-space section-spacing">
+      <Particles
+        className="absolute inset-0 -z-50"
+        quantity={100}
+        ease={80}
+        color={"#fff"}
+        refresh
+      />
+      {showAlert && <Alert type={alertType} text={alertMessage} />}
       <div className="flex flex-col items-center justify-center max-w-md p-5 mx-auto border border-white/10 rounded-2xl bg-primary">
         <div className="flex flex-col items-center gap-5 mb-10">
           <h2 className="text-heading">Let's Talk</h2>
