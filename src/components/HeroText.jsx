@@ -1,11 +1,18 @@
 import { motion } from "motion/react";
 import { FlipWords } from "./FlipWords";
+import { FaAnglesDown } from "react-icons/fa6";
 
 const HeroText = () => {
   const words = ["Secure", "Modern", "Scalable"];
   const variants = {
     hidden: { opacity: 0, x: -50 },
     visible: { opacity: 1, x: 0 },
+  };
+  const scrollToNext = () => {
+    const nextSection = document.getElementById("about"); // Change 'about' to your section id
+    if (nextSection) {
+      nextSection.scrollIntoView({ behavior: "smooth" });
+    }
   };
   return (
     <div className="z-10 mt-20 text-center md:mt-40 md:text-left rounded-3xl bg-clip-text">
@@ -50,6 +57,61 @@ const HeroText = () => {
           >
             Web Solutions
           </motion.p>
+          {/* Scroll down arrow */}
+          <div
+            onClick={scrollToNext}
+            className="absolute bottom-5 left-8 flex items-center gap-1 cursor-pointer"
+          >
+            {/* Arrow with light reflection */}
+            <svg
+              width="40"
+              height="40"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="gray"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="relative"
+            >
+              {/* Create arrow shape */}
+              <path d="M6 9l6 6 6-6" /> {/* Chevron down */}
+              <path d="M6 15l6 6 6-6" /> {/* Chevron down */}
+              {/* Light reflection effect */}
+              <defs>
+                <linearGradient id="shine" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="50%" stopColor="white" stopOpacity="0.9" />
+                </linearGradient>
+                <mask id="shine-mask">
+                  <rect
+                    x="0"
+                    y="0"
+                    width="100%"
+                    height="100%"
+                    fill="url(#shine)"
+                  >
+                    <animateTransform
+                      attributeName="transform"
+                      type="translate"
+                      values="0 -40; 0 40"
+                      dur="2s"
+                      repeatCount="indefinite"
+                    />
+                  </rect>
+                </mask>
+              </defs>
+              {/* Apply mask to arrow */}
+              <g mask="url(#shine-mask)">
+                <path d="M6 9l6 6 6-6" stroke="white" strokeWidth="3" />
+                <path d="M6 15l6 6 6-6" stroke="white" strokeWidth="3" />
+              </g>
+            </svg>
+
+            {/* Text beside arrow */}
+            <span className="text-white text-lg tracking-wide mt-1">
+              Scroll Down
+            </span>
+          </div>
         </div>
       </div>
 

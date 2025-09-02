@@ -4,14 +4,15 @@ import ParallaxBackground from "../components/ParallaxBackground";
 import { Astronaut } from "../components/Astronaut";
 import { Float, OrbitControls } from "@react-three/drei";
 import { useMediaQuery } from "react-responsive";
-import { Suspense } from "react";
 import { easing } from "maath";
-import Loader from "../components/Loader";
 
 const Hero = () => {
   const isMobile = useMediaQuery({ maxWidth: 853 });
   return (
-    <section className="flex items-center justify-center md:items-start md:justify-start min-h-screen overflow-hidden c-space">
+    <section
+      id="home"
+      className="flex items-center justify-center md:items-start md:justify-start min-h-screen overflow-hidden c-space"
+    >
       <HeroText />
       <ParallaxBackground />
       <figure
@@ -19,16 +20,16 @@ const Hero = () => {
         style={{ width: "100vw", height: "100vh" }}
       >
         <Canvas camera={{ position: [0, 1, 3] }}>
-          <Suspense fallback={<Loader />}>
-            <Float>
-              <Astronaut
-                scale={isMobile && 0.23}
-                position={isMobile && [0, -1.5, 0]}
-              />
-              {/* <OrbitControls /> */}
-            </Float>
-            <Rig />
-          </Suspense>
+          {/* <Suspense fallback={<Loader />}> */}
+          <Float>
+            <Astronaut
+              scale={isMobile && 0.23}
+              position={isMobile && [0, -1.5, 0]}
+            />
+            {/* <OrbitControls /> */}
+          </Float>
+          <Rig />
+          {/* </Suspense> */}
         </Canvas>
       </figure>
     </section>
