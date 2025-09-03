@@ -1,6 +1,5 @@
 import { motion } from "motion/react";
 import { FlipWords } from "./FlipWords";
-import { FaAnglesDown } from "react-icons/fa6";
 
 const HeroText = () => {
   const words = ["Secure", "Modern", "Scalable"];
