@@ -57,11 +57,83 @@ html {
 }
 
 body {
-  background: #030412;
+  margin: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: #05050e;
+  background-image: radial-gradient(circle at 30% 30%, rgba(120, 119, 198, 0.15), transparent 60%),
+    radial-gradient(circle at 70% 70%, rgba(0, 212, 255, 0.15), transparent 60%),
+    #0a0a0a;
+  /* dark base */
+  animation: gradientShift 15s ease-in-out infinite alternate;
   font-family: "Funnel Display", sans-serif;
   color: white;
-  scroll-behavior: smooth;
   overflow-x: hidden;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 30% 30%, 70% 70%;
+  }
+
+  100% {
+    background-position: 70% 40%, 30% 80%;
+  }
+}
+
+/* Floating particles container */
+.particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.particles span {
+  position: absolute;
+  display: block;
+  width: 2px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  animation: floatUp linear infinite;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(100vh) scale(0.5);
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(-10vh) scale(1.2);
+    opacity: 0;
+  }
+}
+
+
+.hero::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 150px;
+  /* adjust fade size */
+  background: linear-gradient(to bottom,
+      rgba(255, 255, 255, 0) 0%,
+      /* transparent */
+      #05050e 100%
+      /* next section bg color */
+    );
 }
 
 .c-space {
