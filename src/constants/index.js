@@ -191,6 +191,7 @@ export const experiences = [
     title: "Technical Analyst Intern",
     job: "GeeksforGeeks",
     date: "Nov 2023 – Aug 2024",
+    logo: "/assets/logos/gfg.png",
     contents: [
       "Reviewed 500+ coding solutions in DSA & algorithms, identifying and fixing 100+ critical errors to improve efficiency.",
       "Worked closely with mentors and senior engineers, gaining hands-on experience in writing clean and efficient code.",
