@@ -32,6 +32,14 @@ const chatbotData = {
     "Personal Portfolio Website – React + Bootstrap + Framer Motion",
     "DCS Landing Page – Freelance project - HTML + CSS + Bootstrap + Git",
   ],
+  hobbies: [
+    "Playing video games",
+    "Reading Adventurous & mysterious books",
+    "Traveling",
+    "Listening to music",
+    "Watching Animes",
+    "Watching Sci-Fi, Horror, Thriller, Mysterious & Comedy movies",
+  ],
   jokes: [
     "I was coded to be funny, but trust me, my jokes compile better than yours 😂",
     "Why did the programmer quit his job? Because he didn’t get arrays! 😎",

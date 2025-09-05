@@ -1,15 +1,88 @@
 import chatbotData from "./chatbotdata";
 
 function getBotReply(message) {
-  const msg = message.toLowerCase();
+  const msg = message.toLowerCase().trim();
+  let responses = [];
 
-  // Introduce Rahul / bot
+  // === Cuss / unwanted words ===
+  const cussWords = [
+    "damn",
+    "shit",
+    "fuck",
+    "bitch",
+    "asshole",
+    "crap",
+    "harami",
+    "madarchod",
+    "behenchod",
+    "bhosdike",
+    "lund",
+    "chutiya",
+    "gandu",
+    "randi",
+    "randi ka bacha",
+    "lund ka beej",
+    "bhosdike aage se nikal",
+    "madarchod aage se nikal",
+    "chutiye",
+    "jhantu",
+  ];
+  if (cussWords.some((word) => msg.includes(word))) {
+    const replies = [
+      "Please mind your language",
+      "Let's keep it friendly 😇",
+      "I’m a polite bot 🤖, please avoid bad words",
+      "Let's keep our conversation respectful 🙏",
+      "Let's have a nice conversation 😊",
+      "I'm here to help! Let's keep it positive",
+      "I think you are in wrong place if you want to use such language",
+    ];
+    responses.push(replies[Math.floor(Math.random() * replies.length)]);
+  }
+
+  // === Greetings ===
+  const greetings = ["hi", "hello", "hey", "hola", "yo", "greetings"];
+  if (greetings.some((word) => msg === word || msg.startsWith(word + " "))) {
+    const replies = [
+      "Hey there! 👋 I'm Zeppy, your friendly bot 😄",
+      "Hello! How can I help you today? 🤖",
+      "Hi! Ask me about Rahul, his skills, projects, or just chat 😎",
+    ];
+    responses.push(replies[Math.floor(Math.random() * replies.length)]);
+  }
+
+  // === Greetings ===
+  const acknowledgement = [
+    "ok",
+    "okay",
+    "alright",
+    "got it",
+    "sure",
+    "fine",
+    "yes",
+    "yup",
+    "yeah",
+    "yep",
+  ];
+  if (
+    acknowledgement.some((word) => msg === word || msg.startsWith(word + " "))
+  ) {
+    const replies = [
+      "👍 Got it!",
+      "Okay! 😄",
+      "Alright, noted! ✅",
+      "Sure thing! 😉",
+    ];
+    responses.push(replies[Math.floor(Math.random() * replies.length)]);
+  }
+
+  // Introduce Rahul
   if (msg.includes("about rahul")) {
-    return `Hi! I'm Rahul Sharma 👋
+    responses.push(`Hi! I'm Rahul Sharma 👋
 I’m a B.Tech graduate in Computer Science Engineering (2024).
 I’ve worked at GeeksforGeeks as a Technical Analyst Intern,
 done freelancing projects (like DCS Landing Page & Portfolio Website),
-and built apps with React, Tailwind, C++, Python, and more. 🚀`;
+and built apps with React, Tailwind, C++, Python, and more. 🚀`);
   }
 
   // Conversational replies
@@ -19,7 +92,7 @@ and built apps with React, Tailwind, C++, Python, and more. 🚀`;
       "All systems running smoothly 🤖✨ What about you?",
       "Feeling awesome and ready to chat 🚀",
     ];
-    return replies[Math.floor(Math.random() * replies.length)];
+    responses.push(replies[Math.floor(Math.random() * replies.length)]);
   }
 
   if (msg.includes("thank you") || msg.includes("thanks")) {
@@ -28,7 +101,7 @@ and built apps with React, Tailwind, C++, Python, and more. 🚀`;
       "Anytime! Glad I could help 🙌",
       "No problem, that’s what I’m here for 😎",
     ];
-    return replies[Math.floor(Math.random() * replies.length)];
+    responses.push(replies[Math.floor(Math.random() * replies.length)]);
   }
 
   if (
@@ -47,35 +120,44 @@ and built apps with React, Tailwind, C++, Python, and more. 🚀`;
       "That made my circuits happy 💡⚡",
       "Yay! Glad you liked it 🤩",
     ];
-    return replies[Math.floor(Math.random() * replies.length)];
+    responses.push(replies[Math.floor(Math.random() * replies.length)]);
   }
 
   // Info queries
-  if (msg.includes("name")) return `My creator is ${chatbotData.name}`;
+  if (msg.includes("name")) responses.push(`My creator is ${chatbotData.name}`);
   if (msg.includes("email"))
-    return `You can reach Rahul at 📧 ${chatbotData.email}`;
+    responses.push(`You can reach Rahul at 📧 ${chatbotData.email}`);
   if (msg.includes("phone") || msg.includes("contact"))
-    return `Rahul's contact number is 📱 ${chatbotData.phone}`;
+    responses.push(`Rahul's contact number is 📱 ${chatbotData.phone}`);
   if (msg.includes("location") || msg.includes("from"))
-    return `Rahul is based in 🌍 ${chatbotData.location}`;
+    responses.push(`Rahul is based in 🌍 ${chatbotData.location}`);
   if (msg.includes("education") || msg.includes("study"))
-    return `🎓 Education: ${chatbotData.education.join(", ")}`;
+    responses.push(`🎓 Education: ${chatbotData.education.join(", ")}`);
   if (msg.includes("experience") || msg.includes("work"))
-    return `💼 Experience: ${chatbotData.experience.join(" | ")}`;
+    responses.push(`💼 Experience: ${chatbotData.experience.join(" | ")}`);
   if (msg.includes("skills") || msg.includes("tech"))
-    return `⚡ Skills: ${chatbotData.skills.join(", ")}`;
+    responses.push(`⚡ Skills: ${chatbotData.skills.join(", ")}`);
   if (msg.includes("projects") || msg.includes("portfolio"))
-    return `🚀 Projects: ${chatbotData.projects.join(" | ")}`;
+    responses.push(`🚀 Projects: ${chatbotData.projects.join(" | ")}`);
+  if (msg.includes("hobbies") || msg.includes("hobby"))
+    responses.push(`😄 Hobbies: ${chatbotData.hobbies.join(", ")}`);
 
   // Jokes / fun replies
   if (msg.includes("joke") || msg.includes("funny") || msg.includes("bored")) {
-    return chatbotData.jokes[
-      Math.floor(Math.random() * chatbotData.jokes.length)
-    ];
+    responses.push(
+      chatbotData.jokes[Math.floor(Math.random() * chatbotData.jokes.length)]
+    );
   }
 
-  // Default fallback
-  return "Oh hey! I’m Zeppy 🤖 Ask me about Rahul’s skills, projects, or just chat with me 😎";
+  // === If no known response, fallback ===
+  if (responses.length === 0) {
+    responses.push(
+      "Sorry 🤖, I don't have knowledge about this. You can ask me about Rahul, his skills, experience, or projects."
+    );
+  }
+
+  // Combine multiple responses in a readable format
+  return responses.join(" \n\n");
 }
 
 export default getBotReply;
