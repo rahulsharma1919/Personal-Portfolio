@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { FiExternalLink } from "react-icons/fi";
+import { FaArrowRight } from "react-icons/fa6";
 
 const ProjectDetails = ({
   title,
@@ -77,7 +77,7 @@ const ProjectDetails = ({
               </span>
 
               {/* Arrow (hidden initially, slides in on hover) */}
-              <FiExternalLink className="w-4 h-4 absolute right-3 opacity-0 translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0 text-white z-10" />
+              <FaArrowRight className="size-4 absolute right-4 opacity-0 translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0 text-white z-10" />
 
               {/* Background fill animation */}
               <span className="absolute inset-0 bg-lavender scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300 ease-out"></span>

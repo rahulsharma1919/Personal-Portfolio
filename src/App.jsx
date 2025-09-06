@@ -11,6 +11,7 @@ import Contact from "./sections/Contact";
 import Footer from "./sections/Footer";
 import ChatBot from "./components/ChatBot";
 import GoToTopButton from "./components/GoToTop";
+import ResumePreview from "./sections/ResumePreview";
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -31,6 +32,7 @@ const App = () => {
         <About />
         <Projects />
         <Experiences />
+        <ResumePreview />
         {/* <Testimonial /> */}
         <Contact />
         <Footer />

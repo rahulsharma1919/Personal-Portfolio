@@ -11,21 +11,32 @@ const About = () => {
       <h2 className="text-heading">About Me</h2>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-6 md:auto-rows-[18rem] mt-12">
         {/* Grid 1 */}
-        <div className="flex items-end grid-default-color grid-1">
+        <div className="flex items-end grid-default-color grid-1 relative overflow-hidden">
           <img
-            src="assets/coding-pov.png"
-            className="absolute scale-[1.75] -right-[5rem] -top-[1rem] md:scale-[3] md:left-50 md:inset-y-10 lg:scale-[2.5]"
+            src="assets/rahul.jpg"
             alt="about me"
+            className="
+      absolute inset-0 w-full h-full object-cover
+      object-[center_20%]
+      sm:object-[center_30%]
+      md:object-[center_40%]
+      lg:object-[center_35%]
+    "
           />
-          <div className="z-10">
-            <p className="headtext">Hi, I'm Rahul Sharma</p>
-            <p className="subtext">
+
+          {/* Black gradient backdrop for text - covers 70% */}
+          <div className="absolute inset-x-0 bottom-0 h-[70%] bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+
+          {/* Text on top of gradient */}
+          <div className="z-10 relative p-6">
+            <p className="headtext text-white">Hi, I'm Rahul Sharma</p>
+            <p className="subtext text-gray-200">
               A Front-End Developer with ample command over Python, C++,
               React.js, Node.js, MySQL, and Firebase.
             </p>
           </div>
-          <div className="absolute inset-x-0 pointer-events-none -bottom-4 h-1/2 sm:h-1/3 bg-gradient-to-t from-indigo"></div>
         </div>
+
         {/* Grid 2 */}
         <div className="grid-default-color grid-2">
           <div

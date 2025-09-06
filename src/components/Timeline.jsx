@@ -35,7 +35,7 @@ export const Timeline = ({ data }) => {
           >
             {/* Left side (dot + date/title + logo) */}
             <div className="sticky z-40 flex flex-col items-start self-start top-32 max-w-xs md:w-80">
-              <div className="absolute flex items-center justify-center w-10 h-10 rounded-full -left-[18px] bg-neutral-700">
+              <div className="absolute flex items-center justify-center w-10 h-10 rounded-full -left-[15px] bg-neutral-700">
                 <div className="w-4 h-4 rounded-full bg-purple-500" />
               </div>
 

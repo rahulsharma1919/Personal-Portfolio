@@ -1,7 +1,7 @@
 import { twMerge } from "tailwind-merge";
-import { GoArrowRight } from "react-icons/go";
+import { Download } from "lucide-react";
 
-const Button = ({className, ...props }, ref) => {
+const Button = ({ className, ...props }, ref) => {
   return (
     <button
       ref={ref}
@@ -17,9 +17,9 @@ const Button = ({className, ...props }, ref) => {
           Download CV
         </span>
       </div>
-      <div className="absolute top-0 z-10 flex h-full w-full translate-x-12 items-center justify-center gap-2 text-black opacity-0 transition-all duration-300 group-hover:-translate-x-5 group-hover:opacity-100">
+      <div className="absolute top-0 z-10 flex h-full w-full translate-x-12 items-center justify-center gap-1 text-black opacity-0 transition-all duration-300 group-hover:-translate-x-5 group-hover:opacity-100">
         <span>Download CV</span>
-        <GoArrowRight />
+        <Download className="size-5" />
       </div>
     </button>
   );

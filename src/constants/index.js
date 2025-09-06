@@ -27,7 +27,7 @@ export const myProjects = [
       {
         id: 3,
         name: "Puter.js",
-        path: "/assets/logos/puter.png",
+        path: "/assets/logos/puter-js.png",
       },
       {
         id: 4,
@@ -54,7 +54,7 @@ export const myProjects = [
       {
         id: 1,
         name: "Vercel",
-        path: "/assets/logos/vercel.svg",
+        path: "/assets/logos/vercel.png",
       },
       {
         id: 2,
@@ -64,7 +64,7 @@ export const myProjects = [
       {
         id: 3,
         name: "GSAP",
-        path: "/assets/logos/gsap.svg",
+        path: "/assets/logos/gsap.png",
       },
       {
         id: 4,
@@ -96,7 +96,7 @@ export const myProjects = [
       {
         id: 2,
         name: "Selenium WebDriver",
-        path: "/assets/logos/selenium.svg",
+        path: "/assets/logos/selenium.png",
       },
       {
         id: 3,
