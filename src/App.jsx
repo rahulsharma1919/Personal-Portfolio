@@ -10,7 +10,6 @@ import Contact from "./sections/Contact";
 import Footer from "./sections/Footer";
 import ChatBot from "./components/ChatBot";
 import GoToTopButton from "./components/GoToTop";
-import ResumePreview from "./sections/ResumePreview";
 import CustomCursor from "./components/CustomCursor";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -45,8 +44,6 @@ const App = () => {
         <About />
         <Projects />
         <Experiences />
-        <ResumePreview />
-        {/* <Testimonial /> */}
         <Contact />
         <Footer />
         <GoToTopButton />
