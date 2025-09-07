@@ -59,7 +59,7 @@ const HeroText = () => {
           {/* Scroll down arrow */}
           <div
             onClick={scrollToNext}
-            className="absolute bottom-5 left-8 flex items-center cursor-pointer"
+            className="absolute bottom-5 left-8 flex items-center"
           >
             {/* Arrow with light reflection */}
             <svg
@@ -105,7 +105,7 @@ const HeroText = () => {
             </svg>
 
             {/* Text beside arrow */}
-            <span className="text-white text-lg tracking-wide mt-2">
+            <span className="text-gray-400 text-lg tracking-wide mt-2 hover:text-white transition-all ease-in-out">
               Scroll Down
             </span>
           </div>
