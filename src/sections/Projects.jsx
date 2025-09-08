@@ -6,7 +6,6 @@ import { SlShareAlt } from "react-icons/sl";
 
 const Projects = () => {
   const sectionRef = useRef(null);
-  const titleLineRef = useRef(null);
   const titleRef = useRef(null);
   const triggerRef = useRef(null);
   const horizontalRef = useRef(null);
@@ -26,27 +25,6 @@ const Projects = () => {
         opacity: 1,
         duration: 1.2,
         ease: "power3.out",
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 80%",
-          toggleActions: "play none none reverse",
-        },
-      }
-    );
-
-    // Title Line animation
-    gsap.fromTo(
-      titleLineRef.current,
-      {
-        width: "0%",
-        opacity: 0,
-      },
-      {
-        width: "100%",
-        opacity: 1,
-        duration: 1.5,
-        ease: "power3.inOut",
-        delay: 0.3,
         scrollTrigger: {
           trigger: sectionRef.current,
           start: "top 80%",
@@ -147,21 +125,16 @@ const Projects = () => {
     <section
       ref={sectionRef}
       id="projects"
-      className="relative py-20 overflow-hidden"
+      className="relative w-screen max-w-[100vw] -ml-[calc((100vw-100%)/2)] py-20 overflow-hidden"
     >
-      <div className="container mx-auto px-4 mb-16 relative z-10">
-        <h2
-          ref={titleRef}
-          className="sm:px-10 px-5 lg:px-11 text-heading opacity-0 mb-4 "
-        >
+      {/* Title with spacing */}
+      <div className="w-full px-4 sm:px-10 lg:px-20 mb-6 relative z-10">
+        <h2 ref={titleRef} className=" text-heading opacity-0 mb-4">
           My Projects
         </h2>
-        <div
-          ref={titleLineRef}
-          className="w-0 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto opacity-0"
-        />
       </div>
-      {/* Horizontal Scroll Secion */}
+
+      {/* Horizontal Scroll Section */}
       <div ref={triggerRef} className="overflow-hidden opacity-0">
         <div
           ref={horizontalRef}
@@ -169,7 +142,6 @@ const Projects = () => {
         >
           {myProjects.map((project) => (
             <div
-              Loading
               key={project.id}
               className="panel relative flex items-center justify-center"
             >
@@ -179,10 +151,12 @@ const Projects = () => {
                   alt={project.title}
                   className="project-image max-w-full max-h-full rounded-2xl object-cover"
                 />
-                <h2 className="project-title flex items-center gap-3 md:text-3xl text-sm md:font-bold text-gray-400 mt-6 z-50 text-nowrap hover:text-white transition-colors duration-300 cursor-pointer">
-                  {project.title}
-                  <SlShareAlt />
-                </h2>
+                <a href={project.href}>
+                  <h2 className="project-title flex items-center gap-3 md:text-3xl text-sm md:font-bold text-gray-400 mt-6 z-50 text-nowrap hover:text-white transition-colors duration-300">
+                    {project.title}
+                    <SlShareAlt />
+                  </h2>
+                </a>
               </div>
             </div>
           ))}

@@ -25,7 +25,7 @@ const About = () => {
           />
 
           {/* Black gradient backdrop for text - covers 70% */}
-          <div className="absolute inset-x-0 bottom-0 h-[70%] bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+          <div className="absolute inset-x-0 bottom-0 h-[70%] bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
 
           {/* Text on top of gradient */}
           <div className="z-10 relative p-6">
