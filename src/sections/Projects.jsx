@@ -3,6 +3,7 @@ import { myProjects } from "../constants";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SlShareAlt } from "react-icons/sl";
+import { motion } from "motion/react";
 
 const Projects = () => {
   const sectionRef = useRef(null);
@@ -135,7 +136,10 @@ const Projects = () => {
       </div>
 
       {/* Horizontal Scroll Section */}
-      <div ref={triggerRef} className="overflow-hidden opacity-0">
+      <div
+        ref={triggerRef}
+        className="overflow-hidden opacity-0 bg-gradient-to-b from-[#05050e] to-[#0a0d25]"
+      >
         <div
           ref={horizontalRef}
           className="horizontal-section flex md:w-[400%] w-[420%]"
@@ -143,14 +147,37 @@ const Projects = () => {
           {myProjects.map((project) => (
             <div
               key={project.id}
-              className="panel relative flex items-center justify-center"
+              className="panel relative flex items-center justify-center "
             >
               <div className="relative w-full h-full flex flex-col items-center justify-center p-4 sm:p-8 md:p-12">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="project-image max-w-full max-h-full rounded-2xl object-cover"
-                />
+                <div className="flex flex-col md:flex-row items-center">
+                  {/* Project Image */}
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="project-image max-w-full max-h-full rounded-2xl object-cover"
+                  />
+
+                  {/* Tech Stack */}
+                  <div className="flex md:flex-col gap-4 justify-center md:justify-start items-center md:items-start -ml-4 px-4">
+                    <h2 className="text-2xl">Tech Stack</h2>
+                    {project.tags.map((tag) => (
+                      <div
+                        key={tag.id}
+                        className="flex items-center gap-2 py-2 rounded-xl shadow-md hover:scale-105 transition-transform"
+                      >
+                        <img
+                          src={tag.path}
+                          alt={tag.name}
+                          className="w-6 h-6"
+                        />
+                        <span className="text-sm text-gray-300">
+                          {tag.name}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
                 <a href={project.href}>
                   <h2 className="project-title flex items-center gap-3 md:text-3xl text-sm md:font-bold text-gray-400 mt-6 z-50 text-nowrap hover:text-white transition-colors duration-300">
                     {project.title}
