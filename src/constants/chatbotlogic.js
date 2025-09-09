@@ -124,28 +124,28 @@ and built apps with React, Tailwind, C++, Python, and more. 🚀`);
   }
 
   // Info queries
-  if (msg.includes("name")) responses.push(`My creator is ${chatbotData.name}`);
+  if (msg.includes("name")) responses.push(`My creator is ${chatbotdata.name}`);
   if (msg.includes("email"))
-    responses.push(`You can reach Rahul at 📧 ${chatbotData.email}`);
+    responses.push(`You can reach Rahul at 📧 ${chatbotdata.email}`);
   if (msg.includes("phone") || msg.includes("contact"))
-    responses.push(`Rahul's contact number is 📱 ${chatbotData.phone}`);
+    responses.push(`Rahul's contact number is 📱 ${chatbotdata.phone}`);
   if (msg.includes("location") || msg.includes("from"))
-    responses.push(`Rahul is based in 🌍 ${chatbotData.location}`);
+    responses.push(`Rahul is based in 🌍 ${chatbotdata.location}`);
   if (msg.includes("education") || msg.includes("study"))
-    responses.push(`🎓 Education: ${chatbotData.education.join(", ")}`);
+    responses.push(`🎓 Education: ${chatbotdata.education.join(", ")}`);
   if (msg.includes("experience") || msg.includes("work"))
-    responses.push(`💼 Experience: ${chatbotData.experience.join(" | ")}`);
+    responses.push(`💼 Experience: ${chatbotdata.experience.join(" | ")}`);
   if (msg.includes("skills") || msg.includes("tech"))
-    responses.push(`⚡ Skills: ${chatbotData.skills.join(", ")}`);
+    responses.push(`⚡ Skills: ${chatbotdata.skills.join(", ")}`);
   if (msg.includes("projects") || msg.includes("portfolio"))
-    responses.push(`🚀 Projects: ${chatbotData.projects.join(" | ")}`);
+    responses.push(`🚀 Projects: ${chatbotdata.projects.join(" | ")}`);
   if (msg.includes("hobbies") || msg.includes("hobby"))
-    responses.push(`😄 Hobbies: ${chatbotData.hobbies.join(", ")}`);
+    responses.push(`😄 Hobbies: ${chatbotdata.hobbies.join(", ")}`);
 
   // Jokes / fun replies
   if (msg.includes("joke") || msg.includes("funny") || msg.includes("bored")) {
     responses.push(
-      chatbotData.jokes[Math.floor(Math.random() * chatbotData.jokes.length)]
+      chatbotdata.jokes[Math.floor(Math.random() * chatbotdata.jokes.length)]
     );
   }
 
