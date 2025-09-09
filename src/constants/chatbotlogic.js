@@ -1,4 +1,4 @@
-import chatbotData from "./chatbotdata";
+import { chatbotData } from "./chatbotData";
 
 function getBotReply(message) {
   const msg = message.toLowerCase().trim();
