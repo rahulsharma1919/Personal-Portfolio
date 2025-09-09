@@ -1,4 +1,4 @@
-const chatbotData = {
+const chatbotdata = {
   name: "Rahul Sharma",
   email: "rahul1sharma1919@gmail.com",
   phone: "+91-9554888377",
@@ -51,4 +51,4 @@ const chatbotData = {
   ],
 };
 
-export default chatbotData;
+export default chatbotdata;
