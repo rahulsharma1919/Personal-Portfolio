@@ -136,10 +136,7 @@ const Projects = () => {
       </div>
 
       {/* Horizontal Scroll Section */}
-      <div
-        ref={triggerRef}
-        className="overflow-hidden opacity-0 bg-gradient-to-b from-[#05050e] to-[#0a0d25]"
-      >
+      <div ref={triggerRef} className="overflow-hidden opacity-0">
         <div
           ref={horizontalRef}
           className="horizontal-section flex md:w-[400%] w-[420%]"
@@ -159,22 +156,29 @@ const Projects = () => {
                   />
 
                   {/* Tech Stack */}
-                  <div className="flex md:flex-col gap-4 justify-center md:justify-start items-center md:items-start -ml-4 px-4">
-                    <h2 className="text-2xl">Tech Stack</h2>
-                    {project.tags.map((tag) => (
-                      <div
+                  <div className="flex md:flex-col gap-4 justify-start items-start px-6 py-6 w-max -ml-6">
+                    <h2 className="text-2xl font-bold text-white whitespace-nowrap mb-3">
+                      Tech Stack
+                    </h2>
+                    {project.tags.map((tag, index) => (
+                      <motion.div
                         key={tag.id}
-                        className="flex items-center gap-2 py-2 rounded-xl shadow-md hover:scale-105 transition-transform"
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -30 }}
+                        transition={{ duration: 0.6, delay: index * 0.15 }}
+                        viewport={{ once: false, amount: 0.2 }} // fade out when leaving
+                        className="flex items-center gap-3 px-4 py-2 rounded-lg bg-[#1a1d35] text-gray-200 cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-[0_0_12px_rgba(255,255,255,0.4)] w-auto"
                       >
                         <img
                           src={tag.path}
                           alt={tag.name}
-                          className="w-6 h-6"
+                          className="w-7 h-7 flex-shrink-0"
                         />
-                        <span className="text-sm text-gray-300">
+                        <span className="text-sm font-medium whitespace-nowrap">
                           {tag.name}
                         </span>
-                      </div>
+                      </motion.div>
                     ))}
                   </div>
                 </div>
